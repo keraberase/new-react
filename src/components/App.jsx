@@ -1,20 +1,24 @@
-import { Alert } from "./Alert.jsx";
+import React, { useState } from 'react';
 
-export const App = () => {
+// ClickCounter отримує функцію onUpdate (ім'я пропа),
+// яка викликається під час події onClick
+const ClickCounter = ({ value, onUpdate }) => {
+	return <button onClick={onUpdate}>Current: {value}</button>
+};
+
+const App = () => {
+	const [clicks, setClicks] = useState(0);
+
+	// Функція, яку будемо передавати в ClickCounter
+	// для виклику під час кліку
+	const handleClick = () => {
+    setClicks(clicks + 1);
+  };
+
   return (
     <>
-      <Alert variant="info">
-        Would you like to browse our recommended products?
-      </Alert>
-      <Alert variant="error">
-        There was an error during your last transaction
-      </Alert>
-      <Alert variant="success">
-        Payment received, thank you for your purchase
-      </Alert>
-      <Alert variant="warning">
-        Please update your profile contact information
-      </Alert>
+			<ClickCounter value={clicks} onUpdate={handleClick} />
+			<ClickCounter value={clicks} onUpdate={handleClick} />
     </>
   );
 };
