@@ -50,3 +50,16 @@
 .text{
   background-color: yellow ;
 }
+.blueButton {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none; /* Remove the default outline */
+}
+
+.blueButton:hover {
+  background-color: darkblue;
+}
